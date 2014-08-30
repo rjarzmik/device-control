@@ -267,7 +267,7 @@ backend should have been registered with device-control-register-backend."
     (unless device-name
       (setq device-name
 	    (ido-completing-read (format "Device name (on %s): " hostname)
-				 (nconc '("automatic")
+				 (append '("automatic")
 					(funcall (dctrl-backend-guess-device-names
 						  (dctrl-get-backend-by-name backend-name)))))))
     (when device-name
