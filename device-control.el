@@ -193,7 +193,8 @@ its functions available to device control."
   (let ((state-bufs (if state (dctrl-buf-list 'dctrl-state state) (dctrl-buffers))))
     (mapcar (curry 'buffer-local-value 'dctrl-device-name)
 	    (if backend-name
-		(dctrl-buf-list 'dctrl-backend backend-name state-bufs)
+		(dctrl-buf-list 'dctrl-backend
+		  (dctrl-get-backend-by-name backend-name) state-bufs)
 	      state-bufs))))
 
 (defvar dctrl-last-used-device nil)	;TODO: make a list of used devices
