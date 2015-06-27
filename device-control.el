@@ -160,7 +160,7 @@ its functions available to device control."
   (when (get-buffer-process (current-buffer))
     (kill-process)))
 
-(defun dctrl-create-buffer (device-name backend-name hostname)
+(defun dctrl-create-buffer (device-name backend-name hostname &rest create-args)
   (let ((buf (get-buffer-create (format dctrl-buf-fmt backend-name device-name)))
 	(backend (dctrl-get-backend-by-name backend-name)))
     (with-current-buffer buf
@@ -176,7 +176,7 @@ its functions available to device control."
 		 (setq dctrl-device-name (read-string "Give a name to your device: "))
 		 (rename-buffer (format dctrl-buf-fmt backend-name dctrl-device-name)))
 	  (setq dctrl-device-name device-name))
-      (funcall (dctrl-backend-create dctrl-backend)))
+      (apply (dctrl-backend-create dctrl-backend) create-args))
     buf))
 
 (defsubst dctrl-buffers ()
@@ -255,7 +255,7 @@ its functions available to device control."
 	"localhost")))
 
 ;; Interactives
-(defun device-control-start (&optional hostname backend-name device-name)
+(defun device-control-start (&optional hostname backend-name device-name &rest create-args)
   "Create a device controller, requiring a backend type. The
 backend should have been registered with device-control-register-backend."
   (interactive)
@@ -272,7 +272,8 @@ backend should have been registered with device-control-register-backend."
 					(funcall (dctrl-backend-guess-device-names
 						  (dctrl-get-backend-by-name backend-name)))))))
     (when device-name
-      (with-current-buffer (dctrl-create-buffer device-name backend-name hostname)
+      (with-current-buffer
+	  (apply 'dctrl-create-buffer device-name backend-name hostname create-args)
 	dctrl-device-name))))
 
 (defun device-control (device-name)
