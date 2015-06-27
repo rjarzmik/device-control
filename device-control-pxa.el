@@ -55,10 +55,10 @@
 			openocd-net-hostname openocd-net-hostport
 			)))))
 
-(defun dctrl-pxa-create ()
-  (let ((o-host (read-string "Openocd hostname or ip: "))
-	(o-port (read-string "Openocd port: ")))
-    (dctrl-barebox-net-create)
+(defun dctrl-pxa-create (&optional aocdhost aocdport atftphost anetconhost anetconport)
+  (let ((o-host (or aocdhost (read-string "Openocd hostname or ip: ")))
+	(o-port (or aocdport (read-string "Openocd port: "))))
+    (dctrl-barebox-net-create atftphost anetconhost anetconport)
     (setq openocd-net-hostname o-host
 	  openocd-net-hostport o-port)))
 

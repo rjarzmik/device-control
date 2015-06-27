@@ -82,10 +82,10 @@
     (setcdr dctrl-actions
 	    (cons (car (dctrl-action-wait delay)) (cdr dctrl-actions)))))
 
-(defun dctrl-barebox-net-create ()
-  (let ((tftp-host (read-string "Tftp host ip: "))
-	(host (read-string "Device netconsole hostname or ip: "))
-	(port (read-string "Device netconsole port: ")))
+(defun dctrl-barebox-net-create (&optional atftphost anetconhost anetconport)
+  (let ((tftp-host (or atftphost (read-string "Tftp host ip: ")))
+	(host (or anetconhost (read-string "Device netconsole hostname or ip: ")))
+	(port (or anetconport (read-string "Device netconsole port: "))))
     (setq barebox-tftp-host tftp-host
 	  barebox-net-hostname host
 	  barebox-net-hostport port)
