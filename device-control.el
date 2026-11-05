@@ -1,3 +1,4 @@
+;;; device-control.el --- Configuration Emacs -*- lexical-binding: t; -*-
 ;;; device-control.el --- Device control
 
 ;; Copyright (C) 2014 2014 Free Software Foundation, Inc.

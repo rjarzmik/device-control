@@ -1,3 +1,4 @@
+;;; device-control-pxa.el --- Configuration Emacs -*- lexical-binding: t; -*-
 (require 'ido)
 (require 'device-control)
 (require 'device-control-barebox-net)

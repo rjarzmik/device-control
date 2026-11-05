@@ -1,3 +1,4 @@
+;;; device-control-adb.el --- Configuration Emacs -*- lexical-binding: t; -*-
 (require 'device-control)
 
 (defvar adb-exec "adb")

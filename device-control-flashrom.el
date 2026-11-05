@@ -1,3 +1,4 @@
+;;; device-control-flashrom.el --- Configuration Emacs -*- lexical-binding: t; -*-
 (require 'device-control)
 
 (defvar flashrom-exec "flashrom")

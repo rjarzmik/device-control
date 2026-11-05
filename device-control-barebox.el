@@ -1,3 +1,4 @@
+;;; device-control-barebox.el --- Configuration Emacs -*- lexical-binding: t; -*-
 (require 'device-control)
 (require 'ido)
 (require 'tramp)

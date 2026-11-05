@@ -1,3 +1,4 @@
+;;; device-control-fastboot.el --- Configuration Emacs -*- lexical-binding: t; -*-
 (require 'device-control)
 
 (defvar fastboot-exec "fastboot")

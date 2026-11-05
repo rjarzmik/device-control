@@ -1,3 +1,4 @@
+;;; device-control-barebox-net.el --- Configuration Emacs -*- lexical-binding: t; -*-
 (require 'device-control)
 (require 'ido)
 

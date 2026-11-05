@@ -1,3 +1,4 @@
+;;; device-control-relay.el --- Configuration Emacs -*- lexical-binding: t; -*-
 (require 'device-control)
 
 (defvar dctrl-relay-dnx-combo '(vol-down vol-up))
